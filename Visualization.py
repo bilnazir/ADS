@@ -71,11 +71,42 @@ def plotLineChart():
         ax.label_outer()
 
     fig.tight_layout()
+    
+def plotBarChart():
+    '''
+    This function plot bar chart from the dataset using dataframe.
+    Bar chart shows duration of sunlight in UK between 2000-2005 for all seasons.
+    '''
+    # loc function used to get data of specific years 2000-2005 from dataframe.
+    df_bar = df.loc[81:86]
+    x = np.arange(6)
+    width = 0.2
+    years = df_bar['year'].tolist()
+
+    plt.figure(dpi=200)
+    #To show main title of plot.
+    plt.title('Barchart for Sunlight duration in UK')
+    # x is used for grouped bar chart. x is the position of 1 bar.
+    # x+0.2, x-0.2, x-0.4 these postion are used to show bar charts in groups.
+    plt.bar(x, df_bar['spr'], width, label='Spring')
+    plt.bar(x+0.2, df_bar['sum'], width, label='Summer')
+    plt.bar(x-0.2, df_bar['aut'], width, label='Autmn')
+    plt.bar(x+0.4, df_bar['win'], width, label='Winter')
+    # xticks are used to show years on x-axis of the plot.
+    plt.xticks(x, years)
+    plt.yticks(np.arange(100,1000,200))
+    # x-axis label
+    plt.xlabel('Years')
+    # y-axis label
+    plt.ylabel('Sunlight Duration')
+    # legend function is called to make labels visibles on the chart like Seanson names.
+    plt.legend()
+    plt.show()
 
 
 df = getDataSet()
 plotLineChart()
-
+plotBarChart()
 
 
 
