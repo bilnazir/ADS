@@ -126,8 +126,9 @@ def plotPieChart():
     The second pie charts shows the comparison of sunlight duartion between all seasons of years 2015-2020.
     '''
     
-    # loc function used to get data of years between 2015-2020.
+    # loc function used to get data of years between 1951-1955.
     df_pie1 = df.loc[32:36]
+    # loc function used to get data of years between 2015-2020.
     df_pie2 = df.loc[97:101]
     
     pie1 = getDataForPieChart(df_pie1)
@@ -147,10 +148,13 @@ def plotPieChart():
     ax2.set_title('Sunlight duration in UK (2015-2020)')
 
 
-
+# Get all dataset in a dataframe df.
 df = getDataSet()
+# Function call to plot Line Chart.
 plotLineChart()
+# Function call to plot Bar Chart.
 plotBarChart()
+# Function call to plot Pie Chart.
 plotPieChart()
 
 
